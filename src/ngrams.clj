@@ -29,8 +29,9 @@
                                                                                         "cond"  {"$in" ["$$this", grammed-phrase]}}}}
                                              ;score <- size(matched-ngrams)/ngram-array-size
                                              :score {"$divide" [{"$size" {"$filter" {"input" "$streetAddress1_ngram"
-                                                                                                "cond" {"$in" ["$$this" grammed-phrase]}}}}
-                                                                           {"$size" "$streetAddress1_ngram"}]}}}])))
+                                                                                     "cond"  {"$in" ["$$this" grammed-phrase]}}}}
+                                                                {"$size" "$streetAddress1_ngram"}]}}}
+                                {"$sort"    {:score -1}}])))
 
 (defn blow-db []
   (let [uri               atlas-uri
