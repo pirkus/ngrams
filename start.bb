@@ -2,4 +2,4 @@
 
 (require '[babashka.process :refer [shell process exec]])
 
-(shell "clj -X system/-main")
+(shell "clj -X ngrams/-main")
